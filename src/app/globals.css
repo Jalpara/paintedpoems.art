@@ -1,0 +1,922 @@
+:root {
+  --ink: #17112c;
+  --muted: #6d5267;
+  --paper: #f7d1c4;
+  --paper-deep: #efb4c8;
+  --chalk: #fff7df;
+  --terracotta: #bf354f;
+  --olive: #15846a;
+  --blue: #24479d;
+  --blue-deep: #17336f;
+  --magenta: #d1227f;
+  --gold: #e7b744;
+  --line: rgba(23, 17, 44, 0.18);
+  --shadow: 0 24px 80px rgba(23, 17, 44, 0.22);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--chalk);
+  background: var(--blue-deep);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+body::before {
+  content: none;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+main {
+  overflow: hidden;
+}
+
+.heroShell {
+  padding: clamp(18px, 4vw, 48px);
+}
+
+.hero {
+  align-items: stretch;
+  animation: sectionReveal 720ms ease both;
+  background: transparent;
+  color: var(--chalk);
+  display: grid;
+  gap: clamp(18px, 4vw, 46px);
+  grid-template-columns: minmax(0, 0.95fr) minmax(260px, 0.48fr);
+  margin: 0 auto;
+  max-width: 1240px;
+  min-height: min(760px, calc(100svh - 64px));
+  overflow: hidden;
+  padding: clamp(22px, 5vw, 62px);
+  position: relative;
+}
+
+.hero::after {
+  content: none;
+}
+
+.hero::before {
+  content: none;
+}
+
+.imageFrame img,
+.paintingImage img {
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  position: absolute;
+  width: 100%;
+}
+
+.imageFrame img {
+  background: rgba(23, 51, 111, 0.08);
+  object-fit: contain;
+  padding: 10px;
+  position: relative;
+}
+
+.heroText {
+  align-self: center;
+  animation: sectionReveal 760ms ease both 80ms;
+  max-width: 880px;
+  position: relative;
+  z-index: 3;
+}
+
+.heroPoster {
+  align-self: center;
+  animation: posterFloat 900ms ease both 120ms;
+  aspect-ratio: 3 / 4;
+  background: var(--paper);
+  border: 10px solid var(--chalk);
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.34);
+  margin: 0;
+  min-height: 420px;
+  overflow: hidden;
+  position: relative;
+  z-index: 3;
+}
+
+.heroPoster img {
+  height: 100%;
+  object-fit: contain;
+  width: 100%;
+}
+
+.heroPoster figcaption {
+  background: rgba(255, 247, 223, 0.9);
+  bottom: 0;
+  color: var(--blue-deep);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.76rem;
+  font-weight: 700;
+  left: 0;
+  padding: 8px 10px;
+  position: absolute;
+  right: 0;
+  text-transform: uppercase;
+}
+
+.stamp {
+  color: var(--terracotta);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  margin: 0 0 14px;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  color: var(--chalk);
+  font-size: clamp(3.4rem, 10vw, 8.2rem);
+  font-weight: 400;
+  line-height: 0.86;
+  margin-bottom: 28px;
+  text-shadow: 0 12px 38px rgba(0, 0, 0, 0.34);
+}
+
+.artistLine {
+  color: var(--gold);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(1rem, 1.6vw, 1.35rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin: -8px 0 24px;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: clamp(1.9rem, 4.8vw, 4.2rem);
+  font-weight: 400;
+  line-height: 0.96;
+  margin-bottom: 22px;
+}
+
+h3 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+p {
+  color: var(--muted);
+  font-size: clamp(1rem, 1.6vw, 1.22rem);
+  line-height: 1.7;
+}
+
+.heroText > p:not(.stamp) {
+  color: rgba(255, 247, 223, 0.92);
+  font-size: clamp(1.18rem, 2vw, 1.55rem);
+  max-width: 760px;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 34px;
+}
+
+.heroActions a {
+  align-items: center;
+  border: 1px solid rgba(255, 247, 223, 0.7);
+  display: inline-flex;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  min-height: 46px;
+  padding: 0 18px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.heroActions a:first-child {
+  background: var(--chalk);
+  color: var(--blue-deep);
+}
+
+.heroActions a:last-child {
+  color: var(--chalk);
+}
+
+.timelineSection,
+.poemsSection,
+.paintingsSection,
+.pressSection {
+  padding: clamp(42px, 7vw, 96px) clamp(18px, 5vw, 72px);
+}
+
+.poemsSection {
+  background:
+    linear-gradient(180deg, rgba(255, 247, 223, 0.08), rgba(209, 34, 127, 0.08)),
+    rgba(10, 28, 73, 0.28);
+}
+
+.sectionHeader {
+  align-items: start;
+  border-left: 6px solid var(--magenta);
+  display: grid;
+  gap: 24px;
+  justify-content: start;
+  margin: 0 auto 34px;
+  max-width: 1240px;
+  padding-left: 18px;
+  text-align: left;
+}
+
+.sectionHeader h2 {
+  color: var(--chalk);
+  max-width: 760px;
+  text-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
+}
+
+.sectionHeader .stamp {
+  color: var(--gold);
+}
+
+.diaryLayout {
+  align-items: stretch;
+  background: rgba(8, 24, 64, 0.7);
+  border: 1px solid rgba(255, 247, 223, 0.18);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.18);
+  display: grid;
+  gap: clamp(14px, 2vw, 24px);
+  grid-template-columns: minmax(210px, 250px) minmax(0, 1fr);
+  margin: 0 auto;
+  max-width: 1440px;
+  padding: clamp(12px, 2vw, 22px);
+  width: 100%;
+}
+
+.timeline {
+  align-self: start;
+  background: rgba(9, 27, 73, 0.86);
+  border: 1px solid rgba(255, 247, 223, 0.18);
+  box-shadow: none;
+  display: grid;
+  gap: 6px;
+  height: max-content;
+  max-height: none;
+  overflow: visible;
+  padding: 12px;
+  position: sticky;
+  top: 24px;
+}
+
+.timelineButton {
+  background: rgba(255, 247, 223, 0.1);
+  border: 1px solid rgba(255, 247, 223, 0.16);
+  color: rgba(255, 247, 223, 0.88);
+  cursor: pointer;
+  display: grid;
+  gap: 5px;
+  min-height: auto;
+  padding: 9px 10px;
+  text-align: left;
+  transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.timelineButton span {
+  color: var(--gold);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.timelineButton strong {
+  color: var(--chalk);
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.timelineButton em {
+  color: rgba(255, 247, 223, 0.68);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.74rem;
+  font-style: normal;
+  line-height: 1.2;
+}
+
+.timelineButton:hover {
+  background: rgba(255, 247, 223, 0.14);
+  transform: translateX(2px);
+}
+
+.timelineButton.active {
+  background: rgba(255, 247, 223, 0.18);
+  border-color: rgba(231, 183, 68, 0.75);
+  color: var(--chalk);
+}
+
+.timelineButton.active span {
+  color: var(--gold);
+}
+
+.timelineButton.active strong {
+  color: var(--chalk);
+}
+
+.timelineButton.active em {
+  color: rgba(255, 247, 223, 0.74);
+}
+
+.dayPanel {
+  background: rgba(9, 27, 73, 0.86);
+  border: 1px solid rgba(255, 247, 223, 0.2);
+  display: grid;
+  gap: clamp(22px, 4vw, 46px);
+  grid-template-columns: minmax(320px, 0.86fr) minmax(0, 1.14fr);
+  margin: 0;
+  max-width: none;
+  min-width: 0;
+  padding: clamp(18px, 3vw, 34px);
+}
+
+.dayCopy {
+  align-self: start;
+  min-width: 0;
+}
+
+.dayHeader {
+  background: rgba(255, 247, 223, 0.08);
+  border-left: 5px solid var(--gold);
+  margin-bottom: 18px;
+  padding: 18px;
+}
+
+.dayHeader h2 {
+  color: var(--chalk);
+  font-size: clamp(1.8rem, 3.6vw, 3.4rem);
+  margin-bottom: 14px;
+  text-shadow: none;
+}
+
+.lede {
+  color: rgba(255, 247, 223, 0.82);
+  font-size: clamp(1.04rem, 1.5vw, 1.25rem);
+  line-height: 1.45;
+  margin-bottom: 0;
+}
+
+.metadataGrid {
+  background: rgba(255, 247, 223, 0.08);
+  border: 1px solid rgba(255, 247, 223, 0.12);
+  display: grid;
+  gap: 16px;
+  margin-top: 32px;
+  padding: 18px;
+}
+
+.storyStack {
+  display: grid;
+  gap: 14px;
+}
+
+.storyCard {
+  background: rgba(255, 247, 223, 0.08);
+  border: 1px solid rgba(255, 247, 223, 0.12);
+  padding: 18px;
+}
+
+.storyCard p {
+  color: rgba(255, 247, 223, 0.86);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.chipRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  background: rgba(255, 247, 223, 0.1);
+  border: 1px solid rgba(255, 247, 223, 0.18);
+  color: rgba(255, 247, 223, 0.86);
+  display: inline-flex;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.82rem;
+  line-height: 1.2;
+  padding: 8px 10px;
+}
+
+.metadataGrid h3 {
+  color: var(--gold);
+}
+
+.dayVisuals {
+  display: grid;
+  gap: 18px;
+  min-width: 0;
+}
+
+.imageGallery {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  min-width: 0;
+}
+
+.imageGallery .imageFrame:first-child {
+  grid-column: 1 / -1;
+  grid-template-rows: minmax(300px, 620px) auto;
+}
+
+.imageFrame {
+  background: rgba(23, 51, 111, 0.08);
+  border: 1px solid rgba(23, 17, 44, 0.12);
+  box-shadow: none;
+  display: grid;
+  grid-template-rows: minmax(220px, 460px) auto;
+  margin: 0;
+  min-height: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.imageFrame figcaption {
+  background: #fffdf5;
+  color: var(--muted);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.78rem;
+  line-height: 1.35;
+  min-height: 38px;
+  padding: 10px 12px;
+  position: relative;
+}
+
+.miniPaintings,
+.paintingsGrid {
+  display: grid;
+  gap: 18px;
+}
+
+.poemsGrid {
+  display: grid;
+  gap: clamp(28px, 5vw, 64px);
+  grid-template-columns: minmax(0, 0.58fr) minmax(0, 1.42fr);
+  margin: 0 auto;
+  max-width: 1240px;
+}
+
+.poemsCopy {
+  align-self: center;
+}
+
+.poemsCopy p {
+  color: rgba(255, 247, 223, 0.88);
+  font-size: clamp(1.1rem, 2vw, 1.42rem);
+}
+
+.posterRail {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.posterRail figure {
+  aspect-ratio: 3 / 4;
+  background: var(--blue);
+  border: 8px solid var(--chalk);
+  box-shadow: var(--shadow);
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.posterRail figure:nth-child(even) {
+  transform: translateY(36px);
+}
+
+.posterRail img {
+  height: 100%;
+  object-fit: contain;
+  width: 100%;
+}
+
+.miniPaintings {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.paintingsGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0 auto;
+  max-width: 1240px;
+}
+
+.pressFeature {
+  background:
+    linear-gradient(135deg, rgba(9, 27, 73, 0.98), rgba(18, 42, 100, 0.96)),
+    var(--blue-deep);
+  border: 1px solid rgba(255, 247, 223, 0.24);
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: clamp(22px, 5vw, 52px);
+  grid-template-columns: 1fr;
+  margin: 0 auto;
+  max-width: 1240px;
+  padding: clamp(18px, 4vw, 42px);
+}
+
+.pressCopy {
+  align-self: center;
+}
+
+.pressCopy p {
+  color: rgba(255, 247, 223, 0.86);
+  font-size: clamp(1.05rem, 1.8vw, 1.32rem);
+}
+
+.pressSection .chip {
+  background: rgba(255, 247, 223, 0.1);
+  border-color: rgba(255, 247, 223, 0.28);
+  color: var(--chalk);
+}
+
+.pressGrid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.pressMedia {
+  display: grid;
+  gap: 22px;
+}
+
+.pressVideo {
+  aspect-ratio: 16 / 9;
+  background: var(--ink);
+  border: 10px solid var(--chalk);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.3);
+  max-height: 78svh;
+  width: 100%;
+}
+
+.paintingCard {
+  background: rgba(9, 27, 73, 0.86);
+  border: 1px solid rgba(255, 247, 223, 0.22);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.18);
+  display: grid;
+  gap: 16px;
+  padding: 14px;
+}
+
+.paintingsSection {
+  background:
+    linear-gradient(180deg, rgba(23, 17, 44, 0.02), transparent 42%),
+    rgba(255, 247, 223, 0.08);
+}
+
+.paintingImage {
+  aspect-ratio: 4 / 5;
+  background: rgba(255, 247, 223, 0.08);
+  border: 0;
+  cursor: zoom-in;
+  display: block;
+  padding: 0;
+  position: relative;
+  width: 100%;
+}
+
+.paintingImage img {
+  object-fit: contain;
+  padding: 8px;
+}
+
+.paintingImage:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 4px;
+}
+
+.paintingCard h3 {
+  color: var(--chalk);
+  font-size: clamp(1.25rem, 2vw, 1.8rem);
+  font-weight: 400;
+  line-height: 1.05;
+  margin-bottom: 8px;
+}
+
+.paintingCard p:not(.stamp) {
+  color: rgba(255, 247, 223, 0.76);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.zoomOverlay {
+  align-items: center;
+  animation: fadeIn 180ms ease both;
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  padding: clamp(14px, 4vw, 42px);
+  position: fixed;
+  z-index: 20;
+}
+
+.zoomBackdrop {
+  background: rgba(11, 9, 22, 0.86);
+  border: 0;
+  cursor: zoom-out;
+  inset: 0;
+  position: absolute;
+}
+
+.zoomFrame {
+  animation: modalIn 220ms ease both;
+  background: var(--chalk);
+  box-shadow: 0 30px 110px rgba(0, 0, 0, 0.46);
+  display: grid;
+  gap: 0;
+  grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
+  max-height: 92svh;
+  max-width: min(1160px, 94vw);
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  z-index: 21;
+}
+
+.zoomPaintingPane {
+  align-items: center;
+  background: #100d1f;
+  cursor: zoom-in;
+  display: flex;
+  justify-content: center;
+  min-height: min(78svh, 760px);
+  overflow: hidden;
+  position: relative;
+}
+
+.zoomPaintingPane::after {
+  background-image: var(--zoom-image);
+  background-position: var(--lens-x) var(--lens-y);
+  background-repeat: no-repeat;
+  background-size: 320%;
+  border: 2px solid rgba(255, 247, 223, 0.88);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.42);
+  content: "";
+  height: min(44vw, 420px);
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 24px;
+  top: 24px;
+  transform: scale(0.96);
+  transition: opacity 160ms ease, transform 160ms ease;
+  width: min(44vw, 420px);
+}
+
+.zoomPaintingPane:hover::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.zoomPaintingPane img {
+  max-height: 82svh;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.poemPane {
+  background:
+    linear-gradient(180deg, rgba(36, 71, 157, 0.08), transparent),
+    var(--paper);
+  border-left: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(24px, 4vw, 52px);
+}
+
+.poemPane h3 {
+  color: var(--blue-deep);
+  font-size: clamp(2rem, 4vw, 4.6rem);
+  font-weight: 400;
+  line-height: 0.96;
+}
+
+.poemPane p {
+  color: var(--ink);
+}
+
+.poemRule {
+  background: linear-gradient(90deg, var(--magenta), var(--gold), var(--blue));
+  height: 5px;
+  margin: 22px 0;
+  width: 100%;
+}
+
+.poemMeta {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.zoomClose {
+  background: var(--blue);
+  border: 0;
+  color: var(--chalk);
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  padding: 10px 14px;
+  position: absolute;
+  right: 14px;
+  text-transform: uppercase;
+  top: 14px;
+  z-index: 4;
+}
+
+.zoomableImageFrame {
+  background: transparent;
+  border: 0;
+  cursor: zoom-in;
+  display: block;
+  padding: 0;
+  text-align: left;
+  width: 100%;
+}
+
+.zoomableImageFrame:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 4px;
+}
+
+.pressZoomFrame {
+  animation: modalIn 220ms ease both;
+  background: var(--chalk);
+  box-shadow: 0 30px 110px rgba(0, 0, 0, 0.46);
+  display: grid;
+  gap: 12px;
+  max-height: 92svh;
+  max-width: min(980px, 94vw);
+  padding: 14px;
+  position: relative;
+  z-index: 21;
+}
+
+.pressZoomFrame img {
+  max-height: 78svh;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.pressZoomFrame p {
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+@keyframes sectionReveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes posterFloat {
+  from {
+    opacity: 0;
+    transform: translateY(18px) rotate(0.8deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 920px) {
+  .hero,
+  .zoomFrame,
+  .dayPanel,
+  .diaryLayout,
+  .paintingsGrid,
+  .poemsGrid,
+  .pressFeature {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-top: 48px;
+  }
+
+  .heroPoster {
+    min-height: 360px;
+  }
+
+  .sectionHeader {
+    align-items: start;
+    display: grid;
+  }
+
+  .timeline {
+    max-height: none;
+    position: relative;
+    top: auto;
+  }
+
+  .pressGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  h1 {
+    font-size: clamp(3.2rem, 18vw, 5.8rem);
+  }
+
+  .heroActions a {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .timelineButton {
+    min-height: 78px;
+  }
+
+  .dayPanel {
+    padding: 16px;
+  }
+
+  .imageFrame {
+    border-width: 7px;
+    min-height: 220px;
+  }
+
+  .posterRail {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .posterRail figure:nth-child(even) {
+    transform: none;
+  }
+
+  .pressFeature {
+    padding: 14px;
+  }
+
+  .poemPane {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .zoomPaintingPane {
+    min-height: 54svh;
+  }
+
+  .zoomPaintingPane::after {
+    display: none;
+  }
+}

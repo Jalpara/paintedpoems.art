@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1125">
+  <rect width="900" height="1125" fill="#315f7d"/>
+  <path d="M0 780 C160 610 310 645 435 490 C570 320 685 305 900 190 V1125 H0Z" fill="#f6efe4" opacity=".86"/>
+  <path d="M72 238 C300 370 430 342 586 470 C695 560 772 665 900 700" fill="none" stroke="#c8933d" stroke-width="62" opacity=".78"/>
+  <path d="M190 950 C300 790 420 772 520 650 C620 530 645 410 722 284" fill="none" stroke="#b5533a" stroke-width="46" opacity=".68"/>
+  <text x="58" y="1060" fill="#221b16" font-family="Arial" font-size="44" font-weight="700">The Blue Crossing</text>
+</svg>
