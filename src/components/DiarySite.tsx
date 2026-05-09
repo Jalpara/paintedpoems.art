@@ -192,7 +192,7 @@ export default function DiarySite({
           <div className="heroText">
             <p className="stamp">Poemas Pintados / Omkar Bhatkar</p>
             <h1>Painted Poems</h1>
-            <p className="artistLine">Omkar Bhatkar</p>
+            <p className="artistLine">by Omkar Bhatkar</p>
             <p>
               Spanish mystical poems seen through Indian Gond visual language, carried across monastery, public
               exhibitions, travel notes, and paintings made in response to the journey.
