@@ -731,7 +731,6 @@ p {
 
 .poemPane {
   background-color: var(--paper);
-  background-image: var(--shared-texture);
   background-size: 210px 210px;
   border-left: 1px solid var(--line);
   display: flex;

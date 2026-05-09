@@ -199,7 +199,7 @@ export default function DiarySite({
             </p>
             <div className="heroActions">
               <a href="#paintings">View Paintings</a>
-              <a href="#diary">Enter Diary</a>
+              <a href="#diary">Open Diary</a>
             </div>
           </div>
           <figure className="heroPoster">
